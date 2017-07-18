@@ -37,7 +37,7 @@ changed in all files where they occur
 
 
 ## Examples
-Basic examples of sequences below to show command execution from a bash shell.
+Basic examples of sequences below to show command execution from a bash shell (the variables have been set in advance).
 
 ### To install
 
