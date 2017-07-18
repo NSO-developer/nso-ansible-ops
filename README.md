@@ -15,12 +15,14 @@ units of functionality that can be run sequentially to achieve an operations goa
 * pkgsrc - a local directory where the NSO installer and the packages and NEDs are stored.  This directory is 
 expected to be prepared in advance of the playbook calls and have a structure of (pkgsrc = path/to/distribution):
 
+```
            distribution/
                  |
      -----------------------
      |                     |
  nso-installer.bin      packages/
                   (.tgz or .tar.gz packages)
+ ```
  
 ## Setup
 
