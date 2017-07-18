@@ -1,0 +1,16 @@
+---
+  - name: Update NSO packages
+    hosts: all
+    tasks:
+      - name: Remove current packages
+        become: true
+        become_user: root
+        file: path=/var/opt/ncs/packages state=absent
+      - name: Create the directory for the packages
+        become: true
+        become_user: root
+        file: path=/var/opt/ncs/packages state=directory
+      - name: Install packages
+        become: true
+        become_user: root
+        shell: for file in {{pkgdst}}/distribution/packages/*; do tar -zxf $file -C /var/opt/ncs/packages;done

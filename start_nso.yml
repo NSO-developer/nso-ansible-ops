@@ -1,0 +1,8 @@
+---
+   - name: Start NSO
+     hosts: all
+     tasks:
+           - name: Start NSO
+             become: true
+             become_user: root
+             shell: /etc/init.d/ncs start-with-package-reload

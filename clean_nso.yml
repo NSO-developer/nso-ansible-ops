@@ -1,0 +1,9 @@
+---
+   - name: Clean up an NSO environment
+     hosts: all
+     tasks:
+           - name: Remove NSO downloaded files and installation directories
+             become: true
+             become_user: root
+             shell: source /opt/ncs/current/ncsrc; ncs-uninstall --all --non-interactive
+

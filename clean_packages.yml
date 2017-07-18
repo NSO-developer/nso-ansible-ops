@@ -1,0 +1,9 @@
+---
+   - name: Clean the package distribution 
+     hosts: all
+     tasks:
+           - name: Remove the distribution directory
+             become: true
+             become_user: root
+             shell: rm -rf {{ pkgdst }}
+

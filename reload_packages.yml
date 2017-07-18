@@ -1,0 +1,8 @@
+---
+   - name: Reload packages
+     hosts: all
+     tasks:
+           - name: Reload packages
+             become: true
+             become_user: root
+             shell: source /opt/ncs/current/ncsrc; echo "request packages reload" | ncs_cli

@@ -1,0 +1,13 @@
+---
+  - name: Copy NSO and supporting packages to the target
+    hosts: all
+    tasks:
+          #
+          # Synchronize the local distribution dir with the remote distribution dir
+          # This will pick up everything in distribution (including packages) and
+          # make sure it is on the target.  The synchronize command is a wrapper
+          # around rsync
+          #
+          - name: Synchronize the target distribution directory with the local
+            synchronize: src={{pkgsrc}} dest={{pkgdst}} recursive=yes delete=yes
+

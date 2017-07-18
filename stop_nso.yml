@@ -1,0 +1,10 @@
+---
+   - name: Stop NSO
+     hosts: all
+     tasks:
+     - name: Stop NSO
+       become: true
+       become_user: root
+       service: name=ncs state=stopped
+          
+                    

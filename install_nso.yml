@@ -1,0 +1,28 @@
+---
+  - name: Install NSO and supporting components
+    hosts: all
+    tasks:
+          - name: Install NSO
+            become: true
+            become_user: root
+            shell: sh {{pkgdst}}/distribution/{{nsobin}} --system-install
+          - name: Install packages
+            shell: for file in {{pkgdst}}/distribution/packages/*; do tar -zxf $file -C /var/opt/ncs/packages;done
+            become: true
+            become_user: root
+          - name: Install ncs.conf
+            # use an ncs.conf under source control so that exact configuration parameters can be installed
+            copy: src=configs/ncs.conf dest=/etc/ncs
+            become: true
+            become_user: root
+
+          #
+          # Change group permissions and other misc so that less is running as root.
+          # Do this by uploading and executing a script to keep it all in one place
+          #
+          - name: Copy group and permissions setup script to the target
+            copy: src=scripts/ncsadmin_group_setup.sh dest=/tmp/
+          - name: Configure groups and permissions
+            become: true
+            become_user: root
+            shell: sh /tmp/ncsadmin_group_setup.sh

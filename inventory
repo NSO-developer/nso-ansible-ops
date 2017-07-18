@@ -1,0 +1,22 @@
+[production]
+#1.1.1.1 ansible_ssh_user=tailf ansible_ssh_pass=password
+#1.1.1.2 ansible_ssh_user=tailf ansible_ssh_pass=password
+#1.1.1.3 ansible_ssh_user=tailf ansible_ssh_pass=password
+
+[production:vars]
+linux_ver=RH6
+
+[lab]
+#1.1.1.4 ansible_ssh_user=tailf
+
+[lab:vars]
+linux_ver=RH6
+
+[local]
+#192.168.25.12  ansible_ssh_user=tailf
+172.16.101.243  ansible_ssh_user=tailf
+
+[local:vars]
+linux_ver=CENTOS7
+
+
